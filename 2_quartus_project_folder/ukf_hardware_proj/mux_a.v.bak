@@ -1,0 +1,19 @@
+module mux_a (
+input first
+input [31:0] a,b,
+output [31:0] c
+);
+
+	
+always @ (*) begin
+	
+	if(first) begin
+		c<=b;
+	end
+	else begin
+		c<=d;
+	end
+
+end
+
+endmodule 

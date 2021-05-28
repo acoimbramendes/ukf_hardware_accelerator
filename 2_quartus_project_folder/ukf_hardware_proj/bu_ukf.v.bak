@@ -1,0 +1,142 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
+// CREATED		"Sun Oct 14 18:14:15 2018"
+
+module bu_ukf(
+	data_in_flag,
+	clock,
+	clk_en,
+	ack,
+	data_in_low_a_sum,
+	data_in_low_b_div,
+	data_in_nlow_b_mul,
+	data_available_lower,
+	data_available_nlower,
+	data_available_ndiag,
+	lower_result,
+	ndiag_result,
+	nlower_result
+);
+
+
+input wire	data_in_flag;
+input wire	clock;
+input wire	clk_en;
+input wire	ack;
+input wire	[31:0] data_in_low_a_sum;
+input wire	[31:0] data_in_low_b_div;
+input wire	[31:0] data_in_nlow_b_mul;
+output wire	data_available_lower;
+output wire	data_available_nlower;
+output wire	data_available_ndiag;
+output wire	[31:0] lower_result;
+output wire	[31:0] ndiag_result;
+output wire	[31:0] nlower_result;
+
+wire	[31:0] SYNTHESIZED_WIRE_12;
+wire	[31:0] SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_13;
+wire	[31:0] SYNTHESIZED_WIRE_3;
+wire	[31:0] SYNTHESIZED_WIRE_14;
+wire	[31:0] SYNTHESIZED_WIRE_6;
+wire	SYNTHESIZED_WIRE_8;
+wire	SYNTHESIZED_WIRE_10;
+wire	[31:0] SYNTHESIZED_WIRE_11;
+
+assign	data_available_lower = SYNTHESIZED_WIRE_13;
+assign	data_available_nlower = SYNTHESIZED_WIRE_8;
+assign	data_available_ndiag = SYNTHESIZED_WIRE_10;
+assign	lower_result = SYNTHESIZED_WIRE_14;
+assign	ndiag_result = SYNTHESIZED_WIRE_11;
+assign	nlower_result = SYNTHESIZED_WIRE_12;
+
+
+
+
+bu_lower	b2v_inst(
+	.clock(clock),
+	.clk_en(clk_en),
+	.aclr(ack),
+	.data_in_flag(data_in_flag),
+	.data_a_sum(data_in_low_a_sum),
+	.data_b_sum(SYNTHESIZED_WIRE_12),
+	.datab_div(SYNTHESIZED_WIRE_1),
+	
+	
+	
+	
+	.data_available(SYNTHESIZED_WIRE_13),
+	.result(SYNTHESIZED_WIRE_14));
+
+
+bu_nlower	b2v_inst2(
+	.clock(clock),
+	.clk_en(clk_en),
+	.aclr(ack),
+	.data_in_flag(SYNTHESIZED_WIRE_13),
+	.data_b_accum(SYNTHESIZED_WIRE_3),
+	.dataa_mul(SYNTHESIZED_WIRE_14),
+	.datab_mul(data_in_nlow_b_mul),
+	
+	
+	
+	.data_available(SYNTHESIZED_WIRE_8),
+	.result(SYNTHESIZED_WIRE_12));
+
+
+bu_ndiag	b2v_inst3(
+	.clock(clock),
+	.clk_en(clk_en),
+	.aclr(ack),
+	.data_in_flag(SYNTHESIZED_WIRE_13),
+	.data_b_accum(SYNTHESIZED_WIRE_6),
+	.dataa_mul(SYNTHESIZED_WIRE_14),
+	
+	
+	
+	.data_available(SYNTHESIZED_WIRE_10),
+	.result(SYNTHESIZED_WIRE_11));
+
+
+delay	b2v_inst4(
+	.clk(clock),
+	.data_available_a(SYNTHESIZED_WIRE_8),
+	.a(SYNTHESIZED_WIRE_12),
+	
+	.b(SYNTHESIZED_WIRE_3));
+	defparam	b2v_inst4.delay_size = 18;
+
+
+delay	b2v_inst5(
+	.clk(clock),
+	.data_available_a(SYNTHESIZED_WIRE_10),
+	.a(SYNTHESIZED_WIRE_11),
+	
+	.b(SYNTHESIZED_WIRE_6));
+	defparam	b2v_inst5.delay_size = 18;
+
+
+delay	b2v_inst6(
+	.clk(clock),
+	
+	.a(data_in_low_b_div),
+	
+	.b(SYNTHESIZED_WIRE_1));
+	defparam	b2v_inst6.delay_size = 13;
+
+
+endmodule

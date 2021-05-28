@@ -1,0 +1,43 @@
+module delay_block (
+input[31:0] a,
+input clk,
+input data_available_a,
+output data_available_b,
+output[31:0] b
+
+);
+
+parameter delay_size = 13;
+
+wire[31:0] in[delay_size-1:0];
+wire[delay_size-1:0] data_in_flag;
+wire[delay_size-1:0] data_out_flag;
+
+assign  b = in[delay_size-1];
+assign  b = data_available_b[delay_size-1];
+
+genvar i
+generate
+	for(i=0; i<=delay_size; i=i+1)begin
+		delay_block (
+		
+					.a(in[i]),
+					.clk(clk),
+					.data_available_a(data_in_flag[i]),
+					.data_available_b(data_out_flag[i]),
+					.b()
+
+		
+		
+		)
+		
+	end
+
+
+endgenerate
+
+
+
+
+
+endmodule 

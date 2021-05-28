@@ -1,0 +1,9 @@
+set_global_assignment -name IP_TOOL_NAME "LPM_DIVIDE"
+set_global_assignment -name IP_TOOL_VERSION "17.1"
+set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{Cyclone V}"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "div_int.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "div_int.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "div_int_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "div_int_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "div_int.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "div_int.cmp"]

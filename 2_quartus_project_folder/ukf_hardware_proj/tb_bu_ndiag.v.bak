@@ -1,0 +1,135 @@
+// Testbench
+//memory interface
+
+`timescale 1ns/100ps
+
+module tb_soc_system_onchip();
+wire  [127: 0] readdata;
+wire  [127: 0] readdata2;
+reg   [  5: 0] address;
+reg   [  5: 0] address2;
+reg   [ 15: 0] byteenable;
+reg   [ 15: 0] byteenable2;
+reg            chipselect;
+reg            chipselect2;
+reg            clk;
+reg            clken;
+reg            clken2;
+reg            freeze;
+reg            reset;
+reg            reset_req;
+reg            write;
+reg            write2;
+reg   [127: 0] writedata;
+reg   [127: 0] writedata2;
+soc_system_onchip_memory_0 a0 (      .address(address),
+                                     .address2(address2),
+                                     .byteenable(byteenable),
+                                     .byteenable2(byteenable2),
+                                     .chipselect(chipselect),
+                                     .chipselect2(chipselect2),
+                                     .clk(clk),
+                                     .clken(clken),
+                                     .clken2(clken2),
+                                     .freeze(freeze),
+                                     .reset(reset),
+                                     .reset_req(reset_req),
+                                     .write(write),
+                                     .write2(write2),
+                                     .writedata(writedata),
+                                     .writedata2(writedata2),
+
+                                    // outputs:
+                                     .readdata(readdata),
+                                     .readdata2(readdata2)
+                                  );
+   initial
+   begin
+  $display ("reset high");
+      reset = 1'b1;
+      reset_req = 1'b1;
+      #50;
+      address = 6'b0;
+      address2 = 6'b0;
+      byteenable = 16'b0;
+      byteenable2 = 16'b0;
+      chipselect = 1'b0;
+      chipselect2= 1'b0;
+      clken = 1'b0;
+      clken2 = 1'b0;
+      freeze = 1'b0;
+      write= 1'b0;
+      write2= 1'b0;
+      writedata= 128'b0;
+      writedata2= 128'b0;
+  $display ("reset low");
+      reset = 1'b0;
+      reset_req = 1'b0;
+      write_data(128'h00BABACA00BABACA); // width should be OSL*OSW
+      write_data(128'h00DEAD0000DEAD00); // data gets split into OSW streams, each of length OSL
+      read_data();
+      read_data();
+      $display("Successful completion. All transfers passed");
+      #1000;
+      $stop;
+   end
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+task wire_data;
+input [127:0] data;
+begin
+ #5
+   address <= 6'b0;
+   byteenable <= 16'b01;
+   chipselect <= 1'b1;
+   clken <= 1'b1;
+   write <= 1'b1;
+   writedata<= data;
+   #5
+    address <= 6'b0;
+    byteenable <= 16'b010;
+    chipselect <= 1'b1;
+    clken <= 1'b1;
+    write <= 1'b1;
+    writedata<= data+1;
+   #5
+    address <= 6'b0100;
+    byteenable <= 16'b01;
+    chipselect <= 1'b1;
+    clken <= 1'b1;
+    write <= 1'b1;
+    writedata<= data+1;
+
+end
+endtask
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+task read_data;
+begin
+   #5
+   address2 <= 6'b0;
+   byteenable2 <= 16'b01;
+   chipselect2 <= 1'b1;
+   clken <= 1'b1;
+   clken2 <= 1'b1;
+   write <= 1'b0;
+   write2 <= 1'b0;
+
+end
+endtask
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+localparam CLK_SPEED = 5;  // IF clk = 122.88Mhz = 8.14nS, For half of clock, CLK_SPEED = 8.14nS/2 = 4.07nS
+
+initial
+begin
+  $display ("clk started");
+  clk = 1'b0;
+  #15
+  forever
+  begin
+    #CLK_SPEED clk = 1'b1;
+    #CLK_SPEED clk = 1'b0;
+  end
+end
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+endmodule

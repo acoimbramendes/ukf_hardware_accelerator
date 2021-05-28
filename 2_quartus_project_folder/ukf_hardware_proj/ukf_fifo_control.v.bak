@@ -1,0 +1,110 @@
+module ukf_fifo_control (
+input[127:0] fifo_out_diag,
+output [3:0] matrix_size_out,
+output clock_ukf,
+output reg fifo_wre_diag, fifo_wre_lower,fifo_rde_diag,start_begin,
+input wr_enable,
+input empty_l1, empty_l2,empty_l3,empty_l4,empty_diag,running, fast_clock, slow_clock,finish,
+input rst
+);
+
+
+parameter start=2'b00;
+parameter setting_up= 2'b01;
+parameter diag= 2'b10;
+parameter lower= 2'b11;
+reg[3:0] matrix_size;
+reg [3:0] data_in_count;
+reg data_start_count;
+
+reg [1:0] next_state,state;
+assign stop_pipeline = (empty_l1 || empty_l2 || empty_l3 || empty_l4) && running; //rever
+assign clock_ukf = fast_clock && ~stop_pipeline;
+assign matrix_size_out = matrix_size;
+
+
+
+
+always @ (posedge slow_clock) begin
+	if (data_start_count)begin
+		data_in_count <= data_in_count + 1'b1;
+	end
+	else begin
+		data_in_count <= 4'b0;
+	end
+		
+end
+
+always @ (posedge slow_clock) begin
+	if(!rst) begin
+		state <=next_state;
+	end
+	else state<= start;
+end
+
+always@(state or empty_diag or data_in_count or finish or matrix_size or fifo_out_diag or wr_enable) begin
+	case(state)
+		start: begin
+			
+			matrix_size<=fifo_out_diag[3:0];
+			fifo_wre_diag <= wr_enable;
+			fifo_wre_lower <= 1'b0;
+			data_start_count <= 1'b0;
+			fifo_rde_diag <= 1'b0;
+			start_begin<=1'b0;
+			
+			if(!empty_diag) next_state<= setting_up;
+			else next_state<= start;
+		end
+		setting_up: begin
+		
+			matrix_size<=fifo_out_diag[3:0];
+			fifo_wre_diag <= wr_enable;
+			fifo_wre_lower <= 1'b0;
+			data_start_count <= 1'b1;
+			
+			fifo_rde_diag <= 1'b1;
+			start_begin<=1'b1;
+			
+			//if(fifo_out_diag==)begin
+			next_state<= diag;
+			//end
+			
+		end
+		
+		diag: begin
+		
+			matrix_size<=matrix_size;
+			fifo_wre_diag <= wr_enable;
+			fifo_wre_lower <= 1'b0;
+			data_start_count <= 1'b1;
+			fifo_rde_diag <= 1'b0;
+			start_begin<=1'b0;
+			
+			if(data_in_count == matrix_size) next_state<=lower;
+			else next_state<=diag;
+			
+		end
+		
+		lower: begin
+		
+			matrix_size<=matrix_size;
+			fifo_wre_lower <= wr_enable;
+			fifo_wre_diag <= 1'b0;
+			data_start_count <= 1'b0;
+			fifo_rde_diag <= 1'b0;
+			start_begin<=1'b0;
+			
+			
+			if(finish) next_state<=start;
+			else next_state<=lower;
+		end
+	
+	endcase
+end
+
+
+
+
+
+endmodule 

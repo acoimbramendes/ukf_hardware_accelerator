@@ -1,0 +1,46 @@
+
+module bu_ndiag (
+	output zero,overflow,underflow,
+	output [31:0]  result,
+	input [31:0] data_b_accum,
+	input [31:0] dataa_mul,datab_mul
+	
+);
+
+	wire  aclr, clk_en, clock;
+	reg	  ov1,ov2;
+	wire	[31:0]  mult_out;
+	reg	  uf1,uf2;
+	reg	  z1,z2;
+	
+	assign overflow = ov1 && ov2;
+	assign underflow = uf1 && uf2;	
+	assign zero = z1 && z2;
+
+	fpmult a0 (
+		.aclr(aclr),
+		.clk_en(clk_en),
+		.clock(clock),
+		.dataa(dataa_mul),
+		.datab(datab_mul),
+		.overflow(ov1),
+		.result(mult_out),
+		.underflow(uf1),
+		.zero(z1)
+		);
+		
+	
+	fpadd a1 (
+		.aclr(aclr),
+		.clk_en(clk_en),
+		.clock(clock),
+		.dataa(mult_out),
+		.datab(data_b_accum),
+		.overflow(ov2),
+		.result(result),
+		.underflow(uf2),
+		.zero(z2)
+		);
+
+endmodule 
+

@@ -1,0 +1,24 @@
+
+State Machine - |top_level_ukf|ukf:ukf1|control_ukf:b2v_inst3|state
+Name state.waits state.lower state.lower_start state.diag state.diag_start state.start 
+state.start 0 0 0 0 0 0 
+state.diag_start 0 0 0 0 1 1 
+state.diag 0 0 0 1 0 1 
+state.lower_start 0 0 1 0 0 1 
+state.lower 0 1 0 0 0 1 
+state.waits 1 0 0 0 0 1 
+
+State Machine - |top_level_ukf|ukf:ukf1|control_ndiag_in:b2v_inst1|state
+Name state.sBU4 state.sBU3 state.sBU2 state.sBU1 
+state.sBU1 0 0 0 0 
+state.sBU2 0 0 1 1 
+state.sBU3 0 1 0 1 
+state.sBU4 1 0 0 1 
+
+State Machine - |top_level_ukf|ukf_fifo_control:ukf_fifo_control1|state
+Name state.lower state.diag state.setting_up1 state.start state.setting_up2 
+state.start 0 0 0 0 0 
+state.setting_up1 0 0 1 1 0 
+state.diag 0 1 0 1 0 
+state.lower 1 0 0 1 0 
+state.setting_up2 0 0 0 1 1 

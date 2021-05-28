@@ -1,0 +1,277 @@
+Analysis & Synthesis report for ukf
+Thu Oct 25 13:36:49 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Thu Oct 25 13:36:49 2018           ;
+; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name               ; ukf                                         ;
+; Top-level Entity Name       ; top_level_ukf                               ;
+; Family                      ; Cyclone V                                   ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
+; Total registers             ; N/A until Partition Merge                   ;
+; Total pins                  ; N/A until Partition Merge                   ;
+; Total virtual pins          ; N/A until Partition Merge                   ;
+; Total block memory bits     ; N/A until Partition Merge                   ;
+; Total PLLs                  ; N/A until Partition Merge                   ;
+; Total DLLs                  ; N/A until Partition Merge                   ;
++-----------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; top_level_ukf      ; ukf                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Iteration limit for non-constant Verilog loops                                  ; 1200               ; 250                ;
+; Optimization Technique                                                          ; Speed              ; Balanced           ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Thu Oct 25 13:36:36 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ukf -c ukf
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ukf_fifo_control.v
+    Info (12023): Found entity 1: ukf_fifo_control File: D:/TCC/ukf_hardware/ukf_fifo_control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file top_level_ukf.v
+    Info (12023): Found entity 1: top_level_ukf File: D:/TCC/ukf_hardware/top_level_ukf.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fifo_interface.v
+    Info (12023): Found entity 1: fifo_interface File: D:/TCC/ukf_hardware/fifo_interface.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dual_clock_fifo.v
+    Info (12023): Found entity 1: dual_clock_fifo File: D:/TCC/ukf_hardware/dual_clock_fifo.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file vector.v
+    Info (12023): Found entity 1: vector File: D:/TCC/ukf_hardware/vector.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bu_ukf.v
+    Info (12023): Found entity 1: bu_ukf File: D:/TCC/ukf_hardware/bu_ukf.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file ukf.v
+    Info (12023): Found entity 1: ukf File: D:/TCC/ukf_hardware/ukf.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file ip/square.v
+    Info (12023): Found entity 1: square File: D:/TCC/ukf_hardware/IP/square.v Line: 39
+Info (12021): Found 2 design units, including 2 entities, in source file ip/fpmult.v
+    Info (12023): Found entity 1: fpmult_altfp_mult_72r File: D:/TCC/ukf_hardware/IP/fpmult.v Line: 46
+    Info (12023): Found entity 2: fpmult File: D:/TCC/ukf_hardware/IP/fpmult.v Line: 551
+Info (12021): Found 3 design units, including 3 entities, in source file ip/fpsquare.v
+    Info (12023): Found entity 1: fpsquare_alt_sqrt_block_ocb File: D:/TCC/ukf_hardware/IP/fpsquare.v Line: 50
+    Info (12023): Found entity 2: fpsquare_altfp_sqrt_31f File: D:/TCC/ukf_hardware/IP/fpsquare.v Line: 1081
+    Info (12023): Found entity 3: fpsquare File: D:/TCC/ukf_hardware/IP/fpsquare.v Line: 1834
+Info (12021): Found 3 design units, including 3 entities, in source file ip/fpdiv.v
+    Info (12023): Found entity 1: fpdiv_altfp_div_pst_gei File: D:/TCC/ukf_hardware/IP/fpdiv.v Line: 50
+    Info (12023): Found entity 2: fpdiv_altfp_div_i9m File: D:/TCC/ukf_hardware/IP/fpdiv.v Line: 1025
+    Info (12023): Found entity 3: fpdiv File: D:/TCC/ukf_hardware/IP/fpdiv.v Line: 1087
+Info (12021): Found 22 design units, including 22 entities, in source file ip/fpadd.v
+    Info (12023): Found entity 1: fpadd_altbarrel_shift_ltd File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 50
+    Info (12023): Found entity 2: fpadd_altbarrel_shift_aeb File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 115
+    Info (12023): Found entity 3: fpadd_altpriority_encoder_3e8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 165
+    Info (12023): Found entity 4: fpadd_altpriority_encoder_6e8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 184
+    Info (12023): Found entity 5: fpadd_altpriority_encoder_be8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 217
+    Info (12023): Found entity 6: fpadd_altpriority_encoder_3v7 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 262
+    Info (12023): Found entity 7: fpadd_altpriority_encoder_6v7 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 278
+    Info (12023): Found entity 8: fpadd_altpriority_encoder_bv7 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 306
+    Info (12023): Found entity 9: fpadd_altpriority_encoder_r08 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 334
+    Info (12023): Found entity 10: fpadd_altpriority_encoder_rf8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 366
+    Info (12023): Found entity 11: fpadd_altpriority_encoder_qb6 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 399
+    Info (12023): Found entity 12: fpadd_altpriority_encoder_nh8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 447
+    Info (12023): Found entity 13: fpadd_altpriority_encoder_qh8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 466
+    Info (12023): Found entity 14: fpadd_altpriority_encoder_vh8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 499
+    Info (12023): Found entity 15: fpadd_altpriority_encoder_fj8 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 532
+    Info (12023): Found entity 16: fpadd_altpriority_encoder_n28 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 581
+    Info (12023): Found entity 17: fpadd_altpriority_encoder_q28 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 597
+    Info (12023): Found entity 18: fpadd_altpriority_encoder_v28 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 625
+    Info (12023): Found entity 19: fpadd_altpriority_encoder_f48 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 653
+    Info (12023): Found entity 20: fpadd_altpriority_encoder_e48 File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 681
+    Info (12023): Found entity 21: fpadd_altfp_add_sub_fbm File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 709
+    Info (12023): Found entity 22: fpadd File: D:/TCC/ukf_hardware/IP/fpadd.v Line: 2674
+Info (12021): Found 22 design units, including 22 entities, in source file ip/fpsub.v
+    Info (12023): Found entity 1: fpsub_altbarrel_shift_ltd File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 50
+    Info (12023): Found entity 2: fpsub_altbarrel_shift_aeb File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 115
+    Info (12023): Found entity 3: fpsub_altpriority_encoder_3e8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 165
+    Info (12023): Found entity 4: fpsub_altpriority_encoder_6e8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 184
+    Info (12023): Found entity 5: fpsub_altpriority_encoder_be8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 217
+    Info (12023): Found entity 6: fpsub_altpriority_encoder_3v7 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 262
+    Info (12023): Found entity 7: fpsub_altpriority_encoder_6v7 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 278
+    Info (12023): Found entity 8: fpsub_altpriority_encoder_bv7 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 306
+    Info (12023): Found entity 9: fpsub_altpriority_encoder_r08 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 334
+    Info (12023): Found entity 10: fpsub_altpriority_encoder_rf8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 366
+    Info (12023): Found entity 11: fpsub_altpriority_encoder_qb6 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 399
+    Info (12023): Found entity 12: fpsub_altpriority_encoder_nh8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 447
+    Info (12023): Found entity 13: fpsub_altpriority_encoder_qh8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 466
+    Info (12023): Found entity 14: fpsub_altpriority_encoder_vh8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 499
+    Info (12023): Found entity 15: fpsub_altpriority_encoder_fj8 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 532
+    Info (12023): Found entity 16: fpsub_altpriority_encoder_n28 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 581
+    Info (12023): Found entity 17: fpsub_altpriority_encoder_q28 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 597
+    Info (12023): Found entity 18: fpsub_altpriority_encoder_v28 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 625
+    Info (12023): Found entity 19: fpsub_altpriority_encoder_f48 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 653
+    Info (12023): Found entity 20: fpsub_altpriority_encoder_e48 File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 681
+    Info (12023): Found entity 21: fpsub_altfp_add_sub_gcm File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 709
+    Info (12023): Found entity 22: fpsub File: D:/TCC/ukf_hardware/IP/fpsub.v Line: 2674
+Info (12021): Found 1 design units, including 1 entities, in source file bu_ndiag.v
+    Info (12023): Found entity 1: bu_ndiag File: D:/TCC/ukf_hardware/bu_ndiag.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file bu_nlower.v
+    Info (12023): Found entity 1: bu_nlower File: D:/TCC/ukf_hardware/bu_nlower.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file bu_lower.v
+    Info (12023): Found entity 1: bu_lower File: D:/TCC/ukf_hardware/bu_lower.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file bu_diag.v
+    Info (12023): Found entity 1: bu_diag File: D:/TCC/ukf_hardware/bu_diag.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file tb_bu_ndiag.v
+    Info (12023): Found entity 1: tb_bu_ndiag File: D:/TCC/ukf_hardware/tb_bu_ndiag.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file delay_block.v
+    Info (12023): Found entity 1: delay_block File: D:/TCC/ukf_hardware/delay_block.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file delay.v
+    Info (12023): Found entity 1: delay File: D:/TCC/ukf_hardware/delay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control_ndiag_in.v
+    Info (12023): Found entity 1: control_ndiag_in File: D:/TCC/ukf_hardware/control_ndiag_in.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control_ukf.v
+    Info (12023): Found entity 1: control_ukf File: D:/TCC/ukf_hardware/control_ukf.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ip/div_int.v
+    Info (12023): Found entity 1: div_int File: D:/TCC/ukf_hardware/IP/div_int.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file tb_ukf.v
+    Info (12023): Found entity 1: tb_ukf File: D:/TCC/ukf_hardware/tb_ukf.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file mux_a.v
+    Info (12023): Found entity 1: mux_a File: D:/TCC/ukf_hardware/mux_a.v Line: 1
+Warning (10463): Verilog HDL Declaration warning at latch_a.v(3): "new" is SystemVerilog-2005 keyword File: D:/TCC/ukf_hardware/latch_a.v Line: 3
+Error (10170): Verilog HDL syntax error at latch_a.v(20) near text: "always";  expecting a description. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/TCC/ukf_hardware/latch_a.v Line: 20
+Info (12021): Found 0 design units, including 0 entities, in source file latch_a.v
+Info (12021): Found 1 design units, including 1 entities, in source file tb_top_level_ukf.v
+    Info (12023): Found entity 1: tb_top_level_ukf File: D:/TCC/ukf_hardware/tb_top_level_ukf.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file stop_pipe.v
+    Info (12023): Found entity 1: stop_pipe File: D:/TCC/ukf_hardware/stop_pipe.v Line: 1
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 2 warnings
+    Error: Peak virtual memory: 4799 megabytes
+    Error: Processing ended: Thu Oct 25 13:36:49 2018
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:31
+
+

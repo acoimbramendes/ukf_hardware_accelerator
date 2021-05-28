@@ -1,0 +1,47 @@
+
+module bu_diag (
+	output zero,overflow,underflow,
+	output [31:0]  result,
+	input [31:0] data_a_sum,data_b_sum,
+	input [31:0] datab_div,
+	input clock,clk_en,aclr
+	
+);
+
+	//wire  aclr, clk_en, clock;
+	reg	  ov1,ov2;
+	wire	[31:0]  sum_out;
+	reg	  uf1;
+	reg	  z1,z2;
+	
+	assign overflow = ov1 && ov2;
+	assign underflow = uf1;
+	assign zero = z1 && z2;
+
+fpsquare a1 (
+		.aclr(aclr),
+		.clk_en(clk_en),
+		.clock(clock),
+		.dataa(sum_out),
+		.datab(datab_div),
+		.overflow(ov1),
+		.result(result),
+		.zero(z1)
+		);
+		
+
+	
+fpadd a0 (
+		.aclr(aclr),
+		.clk_en(clk_en),
+		.clock(clock),
+		.dataa(data_a_sum),
+		.datab(data_b_sum),
+		.overflow(ov2),
+		.result(sum_out),
+		.underflow(uf2),
+		.zero(z2)
+		);
+
+endmodule 
+

@@ -1,0 +1,16 @@
+module stop_pipe (input clock, n_stop_request,
+						output stop
+);
+
+
+always @ (posedge clock) begin
+	if (!n_stop_request)
+		stop<=1'b0
+	else 
+		stop <=1'b1;
+end
+
+
+
+
+endmodule 

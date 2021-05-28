@@ -1,0 +1,17 @@
+module ( 
+input [31:0] a,
+input new,
+output [31:0] b
+
+);
+
+always @(*) begin
+	if(new) begin
+		b<=a;
+	end
+	else begin
+		b<=b;
+	end
+end  
+
+endmodule 
