@@ -1,1 +1,0 @@
-This folder contain auxiliary tools for UKF library such as code generators i.e
