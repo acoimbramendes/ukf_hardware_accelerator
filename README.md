@@ -5,7 +5,7 @@ Full project Documentation in ABNT formatting:
 [Final_Document_Thesis.pdf](https://github.com/acoimbramendes/ukf_hardware_accelerator/blob/master/TCC_Anderson_final.pdf)
 
 
-# ABSTRACT
+# Abstract
 
 States estimators play a key role in embedded systems primarily for autonomous unmanned aerial vehicles and cars, as they allow the determination of vehicle state such as
 position, speed, and height with a higher accuracy. The Unscented Kalman Filter (UKF)
@@ -20,4 +20,8 @@ were evaluated. A dedicated co-processor for Cholesky’s decomposition calculat
 designed and the digital circuit was tested using the DE0-Nano-SoC development kit. We
 could see an acceleration of 2006 % for Cholesky, which represented a final acceleration
 of 26 % for the UKF algorithm.
+
+
 Key-words:UKF. Cholesky. Hardware Accelerator. Cyclone V SoC. DE0-Nano-SoC. FPSoC. Digital Systems. Embedded Systems. VANT.
+
+#Project Images:
