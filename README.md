@@ -5,7 +5,7 @@ Full project Documentation in ABNT formatting:
 [Final_Document_Thesis.pdf](https://github.com/acoimbramendes/ukf_hardware_accelerator/blob/master/TCC_Anderson_final.pdf)
 
 
-ABSTRACT
+# ABSTRACT
 
 States estimators play a key role in embedded systems primarily for autonomous unmanned aerial vehicles and cars, as they allow the determination of vehicle state such as
 position, speed, and height with a higher accuracy. The Unscented Kalman Filter (UKF)
